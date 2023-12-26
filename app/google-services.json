@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "304424374703",
+    "project_id": "movie-app-cca64",
+    "storage_bucket": "movie-app-cca64.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304424374703:android:3d107bff0bf5ab4fb21f5a",
+        "android_client_info": {
+          "package_name": "com.andrew.solokhov.mvvmmovieapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAamY8Uvn76qFvfgHOUnGXyGKjQkuPGSrE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,21 @@
 <resources>
     <string name="app_name">MvvmMovieApp</string>
     <string name="cinemax">cinemax</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="auth_explanation">Enter your registered \nPhone Number to Sign Up</string>
+    <string name="already_have_acc">I already have an account? Login</string>
+    <string name="sign_up_with">Or Sign up with</string>
+    <string name="login">Login</string>
+    <string name="welcome_text">Welcome back! Please enter your details.</string>
+    <string name="enter_email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="hi_tiffany">Hi, Tiffany</string>
+    <string name="back_press_btn">Back press btn</string>
+    <string name="not_yet_implemented">Not yet implemented</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="lets_get_started">Let\'s get started</string>
+    <string name="sign_up_desc">The latest movies and series are here</string>
+    <string name="full_name">Full Name</string>
+    <string name="terms_of_use">I agree to the Terms and Services and Privacy Policy</string>
 </resources>

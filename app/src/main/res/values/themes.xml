@@ -1,6 +1,9 @@
 <resources>
     <style name="Base.Theme.MvvmMovieApp" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/main_color</item>
+        <item name="android:navigationBarColor">@color/main_color</item>
     </style>
 
     <style name="Theme.MvvmMovieApp" parent="Base.Theme.MvvmMovieApp" />
+
 </resources>

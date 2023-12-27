@@ -2,7 +2,7 @@
 <resources>
     <style name="Theme.MvvmMovieApp.MySplash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">#1F1D2B</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_app_splash</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_app_image</item>
         <item name="postSplashScreenTheme">@style/Base.Theme.MvvmMovieApp</item>
     </style>
 </resources>

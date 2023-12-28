@@ -76,7 +76,7 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/enter_your_full_name_layout"
+            android:id="@+id/full_name_text_input_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -85,72 +85,70 @@
             android:hint="@string/full_name"
             android:textColorHint="@color/white"
             app:boxBackgroundMode="outline"
-            app:hintTextColor="@color/white"
             app:counterTextColor="@color/white"
+            app:cursorColor="@color/white"
             app:endIconMode="clear_text"
             app:endIconTint="@color/white"
-            app:cursorColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:hintTextColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.1">
+            app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/enter_full_name_input"
+                android:id="@+id/full_name_text_input"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/edit_text_bg"
                 android:inputType="textAutoComplete|textCapWords"
                 android:singleLine="true"
-                android:textSize="14sp"
                 android:textColor="@color/grey"
+                android:textSize="14sp"
                 android:textStyle="italic" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/enterYourNameLayout"
+            android:id="@+id/email_text_input_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
             android:hint="@string/enter_email_address"
             android:textColorHint="@color/white"
             app:boxBackgroundMode="outline"
-            app:hintTextColor="@color/white"
             app:counterTextColor="@color/white"
+            app:cursorColor="@color/white"
             app:endIconMode="clear_text"
             app:endIconTint="@color/white"
-            app:cursorColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:hintTextColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/enter_your_full_name_layout"
-            app:layout_constraintVertical_bias="0.1">
+            app:layout_constraintTop_toBottomOf="@id/full_name_text_input_layout">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/enterYourNameTextInput"
+                android:id="@+id/email_text_input"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/edit_text_bg"
-                android:inputType="textAutoComplete|textCapWords"
+                android:inputType="textEmailAddress"
                 android:singleLine="true"
-                android:textSize="14sp"
                 android:textColor="@color/grey"
+                android:textSize="14sp"
                 android:textStyle="italic" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/enterYourCongratulationsLayout"
+            android:id="@+id/password_text_input_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:hint="@string/password"
+            android:layout_marginTop="24dp"
             app:hintTextColor="@color/white"
             android:textColorHint="@color/white"
             app:boxBackgroundMode="outline"
@@ -160,18 +158,19 @@
             app:endIconMode="password_toggle"
             app:endIconTint="@color/grey"
             app:cursorColor="@color/white"
+            app:passwordToggleEnabled="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/enterYourNameLayout"
+            app:layout_constraintTop_toBottomOf="@+id/email_text_input_layout"
             app:layout_constraintVertical_bias="0.3">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/enterYourCongratulationsTextInput"
+                android:id="@+id/password_text_input"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/edit_text_bg"
-                android:inputType="textAutoComplete|textCapWords"
+                android:inputType="textPassword"
                 android:maxLength="20"
                 android:singleLine="true"
                 android:textSize="14sp"
@@ -186,18 +185,20 @@
         android:id="@+id/tv_terms_and_services_plus_policy"
         android:layout_width="226dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="4dp"
+        android:fontFamily="@font/montserrat_regular"
         android:text="@string/terms_of_use"
         android:textColor="@color/grey"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/checkBox"
+        android:layout_marginTop="6dp"
         app:layout_constraintStart_toEndOf="@+id/checkBox"
         app:layout_constraintTop_toTopOf="@+id/checkBox" />
 
     <CheckBox
         android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="@+id/constraintLayout"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 

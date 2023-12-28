@@ -18,4 +18,6 @@
     <string name="sign_up_desc">The latest movies and series are here</string>
     <string name="full_name">Full Name</string>
     <string name="terms_of_use">I agree to the Terms and Services and Privacy Policy</string>
+    <string name="terms_and_services_clicked">Terms and Services clicked!</string>
+    <string name="privacy_policy_clicked">Privacy Policy clicked!</string>
 </resources>

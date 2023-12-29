@@ -5,11 +5,11 @@ import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.method.LinkMovementMethod
 import android.text.style.ForegroundColorSpan
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -54,11 +54,9 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                     viewModel.validationEvents.collectLatest { event ->
                         when (event) {
                             is SignUpViewModel.ValidationEvent.Success -> {
-                                Toast.makeText(
-                                    requireContext(),
-                                    "Successfully signed up!",
-                                    Toast.LENGTH_SHORT
-                                ).show()
+                                val email = emailTextInput.text.toString()
+                                val password = passwordTextInput.text.toString()
+                                viewModel.signUpNewUser(email, password)
                             }
                         }
                     }
@@ -75,11 +73,8 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                         if (!fullNameTextInput.isFocused) {
                             fullNameTextInput.setText(it.fullName)
                         }
-                        Log.d("MyError", it.emailError.toString())
                         emailTextInputLayout.error = it.emailError
-                        Log.d("MyError", it.passwordError.toString())
                         passwordTextInputLayout.error = it.passwordError
-                        Log.d("MyError", it.fullNameError.toString())
                         fullNameTextInputLayout.error = it.fullNameError
 
                         checkBox.isChecked = it.acceptedTermsAndPolicy
@@ -88,6 +83,27 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                             if (!checkBox.isChecked) {
                                 Snackbar.make(requireView(), errorMessage, Snackbar.LENGTH_LONG)
                                     .show()
+                            }
+                        }
+                    }
+                }
+                launch {
+                    viewModel.signUpState.collectLatest { result ->
+                        when (result) {
+                            SignUpResult.Empty -> Unit
+                            is SignUpResult.Error -> {
+                                progressBar.isVisible = false
+                                showToastMessage(
+                                    getString(R.string.something_went_wrong_try_again),
+                                    requireContext()
+                                )
+                            }
+
+                            SignUpResult.Loading -> progressBar.isVisible = true
+                            is SignUpResult.Success -> {
+                                progressBar.isVisible = false
+                                showToastMessage("Successfully signed up!", requireContext())
+                                findNavController().navigate(R.id.action_signUpFragment_to_homeFragment)
                             }
                         }
                     }

@@ -2,7 +2,9 @@ package com.andrew.solokhov.mvvmmovieapp.presentation.fragments.auth.sign_up
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.andrew.solokhov.mvvmmovieapp.data.utils.ResponseWrapper
 import com.andrew.solokhov.mvvmmovieapp.domain.entity.sign_up.SignUpFormState
+import com.andrew.solokhov.mvvmmovieapp.domain.repository.AuthRepository
 import com.andrew.solokhov.mvvmmovieapp.domain.usecases.sign_up.ValidateEmailUseCase
 import com.andrew.solokhov.mvvmmovieapp.domain.usecases.sign_up.ValidateFullNameUseCase
 import com.andrew.solokhov.mvvmmovieapp.domain.usecases.sign_up.ValidatePasswordUseCase
@@ -12,6 +14,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -19,6 +22,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SignUpViewModel @Inject constructor(
+    private val authRepository: AuthRepository,
     private val validateFullNameUseCase: ValidateFullNameUseCase,
     private val validatePasswordUseCase: ValidatePasswordUseCase,
     private val validateTermsAndPrivacyPolicyUseCase: ValidateTermsAndPrivacyPolicyUseCase,
@@ -30,6 +34,26 @@ class SignUpViewModel @Inject constructor(
 
     private val validationEventChannel = Channel<ValidationEvent>()
     val validationEvents = validationEventChannel.receiveAsFlow()
+
+    private var _signUpState =
+        MutableStateFlow<SignUpResult>(SignUpResult.Empty)
+    val signUpState = _signUpState.asStateFlow()
+
+    fun signUpNewUser(email: String, password: String) {
+        viewModelScope.launch {
+            authRepository.registerUser(email, password).collectLatest { response ->
+                when (response) {
+                    is ResponseWrapper.Error -> _signUpState.value =
+                        SignUpResult.Error(response.message)
+
+                    is ResponseWrapper.Loading -> _signUpState.value =
+                        SignUpResult.Loading
+                    is ResponseWrapper.Success -> _signUpState.value =
+                        SignUpResult.Success(response.data)
+                }
+            }
+        }
+    }
 
     fun onSignUpEvent(event: SignUpFormEvent) {
         val currentState = _validationState.value

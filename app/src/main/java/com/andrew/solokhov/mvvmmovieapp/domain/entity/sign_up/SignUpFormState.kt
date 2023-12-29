@@ -1,4 +1,4 @@
-package com.andrew.solokhov.mvvmmovieapp.presentation.fragments.auth.sign_up
+package com.andrew.solokhov.mvvmmovieapp.domain.entity.sign_up
 
 import androidx.annotation.Keep
 

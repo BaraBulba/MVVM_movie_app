@@ -1,7 +1,7 @@
 package com.andrew.solokhov.mvvmmovieapp.domain.usecases.sign_up
 
 import android.util.Patterns
-import com.andrew.solokhov.mvvmmovieapp.domain.utils.ValidationResult
+import com.andrew.solokhov.mvvmmovieapp.domain.entity.sign_up.ValidationResult
 import javax.inject.Inject
 
 class ValidateEmailUseCase @Inject constructor() {

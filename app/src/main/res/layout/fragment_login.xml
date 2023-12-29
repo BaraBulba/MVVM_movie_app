@@ -28,8 +28,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:contentDescription="@string/back_press_btn"
         android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/back_press_btn"
         android:src="@drawable/ic_auth_back_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -40,13 +40,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/montserrat_bold"
+        android:text="@string/hi_tiffany"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        android:text="@string/hi_tiffany" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/textView6"
@@ -84,13 +84,13 @@
             android:hint="@string/enter_email_address"
             android:textColorHint="@color/white"
             app:boxBackgroundMode="outline"
-            app:hintTextColor="@color/white"
             app:counterTextColor="@color/white"
+            app:cursorColor="@color/white"
             app:endIconMode="clear_text"
             app:endIconTint="@color/white"
             app:helperText="Required"
-            app:cursorColor="@color/white"
             app:helperTextTextColor="@color/red"
+            app:hintTextColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -102,11 +102,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/edit_text_bg"
+                android:fontFamily="@font/montserrat_medium"
                 android:inputType="textAutoComplete|textCapWords"
                 android:singleLine="true"
-                android:textSize="14sp"
                 android:textColor="@color/grey"
-                android:textStyle="italic" />
+                android:textSize="14sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -118,17 +118,17 @@
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:hint="@string/password"
-            app:hintTextColor="@color/white"
             android:textColorHint="@color/white"
             app:boxBackgroundMode="outline"
             app:counterEnabled="true"
             app:counterMaxLength="20"
             app:counterTextColor="@color/white"
+            app:cursorColor="@color/white"
             app:endIconMode="password_toggle"
             app:endIconTint="@color/grey"
             app:helperText="Required"
-            app:cursorColor="@color/white"
             app:helperTextTextColor="@color/red"
+            app:hintTextColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -140,12 +140,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/edit_text_bg"
+                android:fontFamily="@font/montserrat_medium"
                 android:inputType="textAutoComplete|textCapWords"
                 android:maxLength="20"
                 android:singleLine="true"
-                android:textSize="14sp"
                 android:textColor="@color/grey"
-                android:textStyle="italic" />
+                android:textSize="14sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -155,6 +155,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/forgot_password"
+            android:textSize="12sp"
+            android:fontFamily="@font/montserrat_medium"
             android:textColor="@color/light_blue"
             app:layout_constraintEnd_toEndOf="@+id/enterYourCongratulationsLayout"
             app:layout_constraintTop_toBottomOf="@+id/enterYourCongratulationsLayout" />
@@ -165,8 +167,8 @@
         android:id="@+id/btn_sign_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/login_button"
         android:layout_marginTop="40dp"
+        android:src="@drawable/login_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

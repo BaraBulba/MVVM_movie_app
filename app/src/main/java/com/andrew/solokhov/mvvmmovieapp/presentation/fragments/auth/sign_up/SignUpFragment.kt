@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.method.LinkMovementMethod
-import android.text.style.ClickableSpan
 import android.text.style.ForegroundColorSpan
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
@@ -13,7 +13,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
@@ -23,7 +22,6 @@ import com.andrew.solokhov.mvvmmovieapp.presentation.utils.NewClickableSpan
 import com.andrew.solokhov.mvvmmovieapp.presentation.utils.SignUpFormEvent
 import com.andrew.solokhov.mvvmmovieapp.presentation.utils.showToastMessage
 import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.textfield.TextInputLayout.END_ICON_NONE
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -77,8 +75,11 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                         if (!fullNameTextInput.isFocused) {
                             fullNameTextInput.setText(it.fullName)
                         }
+                        Log.d("MyError", it.emailError.toString())
                         emailTextInputLayout.error = it.emailError
+                        Log.d("MyError", it.passwordError.toString())
                         passwordTextInputLayout.error = it.passwordError
+                        Log.d("MyError", it.fullNameError.toString())
                         fullNameTextInputLayout.error = it.fullNameError
 
                         checkBox.isChecked = it.acceptedTermsAndPolicy

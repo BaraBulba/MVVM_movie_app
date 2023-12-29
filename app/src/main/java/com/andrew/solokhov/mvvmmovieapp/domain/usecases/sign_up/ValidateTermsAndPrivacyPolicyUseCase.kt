@@ -1,6 +1,6 @@
 package com.andrew.solokhov.mvvmmovieapp.domain.usecases.sign_up
 
-import com.andrew.solokhov.mvvmmovieapp.domain.utils.ValidationResult
+import com.andrew.solokhov.mvvmmovieapp.domain.entity.sign_up.ValidationResult
 import javax.inject.Inject
 
 class ValidateTermsAndPrivacyPolicyUseCase @Inject constructor() {

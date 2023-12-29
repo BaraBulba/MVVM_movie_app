@@ -2,6 +2,7 @@ package com.andrew.solokhov.mvvmmovieapp.presentation.fragments.auth.sign_up
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.andrew.solokhov.mvvmmovieapp.domain.entity.sign_up.SignUpFormState
 import com.andrew.solokhov.mvvmmovieapp.domain.usecases.sign_up.ValidateEmailUseCase
 import com.andrew.solokhov.mvvmmovieapp.domain.usecases.sign_up.ValidateFullNameUseCase
 import com.andrew.solokhov.mvvmmovieapp.domain.usecases.sign_up.ValidatePasswordUseCase

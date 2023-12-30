@@ -30,8 +30,6 @@ import kotlinx.coroutines.launch
 class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
 
     private var _binding: FragmentSignUpBinding? = null
-    private var termsOfUseTextClick: NewClickableSpan? = null
-    private var privacyPolicyTextClick: NewClickableSpan? = null
 
     private val viewModel by viewModels<SignUpViewModel>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -143,10 +141,10 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
         val colorSpan = ForegroundColorSpan(color)
         val colorSpan2 = ForegroundColorSpan(color)
 
-        termsOfUseTextClick = NewClickableSpan {
+        val termsOfUseTextClick = NewClickableSpan {
             findNavController().navigate(R.id.action_signUpFragment_to_privacyPolicyFragment)
         }
-        privacyPolicyTextClick = NewClickableSpan {
+        val privacyPolicyTextClick = NewClickableSpan {
             findNavController().navigate(R.id.action_signUpFragment_to_privacyPolicyFragment)
         }
 
@@ -160,8 +158,6 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        termsOfUseTextClick = null
-        privacyPolicyTextClick = null
         _binding = null
     }
 

@@ -3,7 +3,6 @@ package com.andrew.solokhov.mvvmmovieapp.presentation
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import com.andrew.solokhov.mvvmmovieapp.R
 import com.andrew.solokhov.mvvmmovieapp.presentation.utils.AuthNavOptions
@@ -17,6 +16,8 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var firebaseAuth: FirebaseAuth
 
+    private var isFirstCreation = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen()
@@ -25,7 +26,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        checkIfUserAuthenticated()
+        if (isFirstCreation) {
+            checkIfUserAuthenticated()
+            isFirstCreation = false
+        }
     }
 
     private fun checkIfUserAuthenticated() {

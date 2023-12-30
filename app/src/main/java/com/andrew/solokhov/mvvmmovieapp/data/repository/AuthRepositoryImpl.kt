@@ -4,7 +4,6 @@ import com.andrew.solokhov.mvvmmovieapp.data.utils.ResponseWrapper
 import com.andrew.solokhov.mvvmmovieapp.di.provide.IoDispatcher
 import com.andrew.solokhov.mvvmmovieapp.domain.repository.AuthRepository
 import com.google.android.gms.tasks.Task
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.crashlytics.FirebaseCrashlytics
@@ -69,8 +68,17 @@ class AuthRepositoryImpl @Inject constructor(
 
     }
 
-    private fun performFirebaseAuthOperation(
-        operation: suspend () -> Task<AuthResult>,
+    override fun resetUserPasswordWithEmail(email: String): Flow<ResponseWrapper<Boolean>> {
+        return performFirebaseAuthOperation(
+            operation = {
+                firebaseAuth.sendPasswordResetEmail(email)
+            },
+            firebaseCrashlytics = firebaseCrashlytics
+        )
+    }
+
+    private fun <T> performFirebaseAuthOperation(
+        operation: suspend () -> Task<T>,
         firebaseCrashlytics: FirebaseCrashlytics
     ): Flow<ResponseWrapper<Boolean>> {
         return flow {

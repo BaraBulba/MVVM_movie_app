@@ -36,7 +36,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 loginUser()
             }
             tvForgotPassword.setOnClickListener {
-                //TODO
+                findNavController().navigate(R.id.action_loginFragment_to_passwordResetFragment)
             }
 
         }

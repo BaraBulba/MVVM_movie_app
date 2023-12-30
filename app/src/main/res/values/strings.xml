@@ -21,4 +21,7 @@
     <string name="terms_and_services_clicked">Terms and Services clicked!</string>
     <string name="privacy_policy_clicked">Privacy Policy clicked!</string>
     <string name="something_went_wrong_try_again">Something went wrong, try again!</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="recover_acc_pass">Recover your account password</string>
+    <string name="check_your_email">Check your email!</string>
 </resources>

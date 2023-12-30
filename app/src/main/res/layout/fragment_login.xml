@@ -75,7 +75,7 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/enterYourNameLayout"
+            android:id="@+id/email_text_input_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -98,12 +98,12 @@
             app:layout_constraintVertical_bias="0.1">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/enterYourNameTextInput"
+                android:id="@+id/email_text_input"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/edit_text_bg"
                 android:fontFamily="@font/montserrat_medium"
-                android:inputType="textAutoComplete|textCapWords"
+                android:inputType="textEmailAddress"
                 android:singleLine="true"
                 android:textColor="@color/grey"
                 android:textSize="14sp" />
@@ -111,7 +111,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/enterYourCongratulationsLayout"
+            android:id="@+id/password_text_input_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -125,23 +125,23 @@
             app:counterTextColor="@color/white"
             app:cursorColor="@color/white"
             app:endIconMode="password_toggle"
-            app:endIconTint="@color/grey"
+            app:endIconTint="@color/white"
             app:helperText="Required"
             app:helperTextTextColor="@color/red"
             app:hintTextColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/enterYourNameLayout"
+            app:layout_constraintTop_toBottomOf="@+id/email_text_input_layout"
             app:layout_constraintVertical_bias="0.3">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/enterYourCongratulationsTextInput"
+                android:id="@+id/password_text_input"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/edit_text_bg"
                 android:fontFamily="@font/montserrat_medium"
-                android:inputType="textAutoComplete|textCapWords"
+                android:inputType="textVisiblePassword"
                 android:maxLength="20"
                 android:singleLine="true"
                 android:textColor="@color/grey"
@@ -154,17 +154,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/forgot_password"
-            android:textSize="12sp"
             android:fontFamily="@font/montserrat_medium"
+            android:text="@string/forgot_password"
             android:textColor="@color/light_blue"
-            app:layout_constraintEnd_toEndOf="@+id/enterYourCongratulationsLayout"
-            app:layout_constraintTop_toBottomOf="@+id/enterYourCongratulationsLayout" />
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/password_text_input_layout"
+            app:layout_constraintTop_toBottomOf="@+id/password_text_input_layout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/btn_sign_up"
+        android:id="@+id/btn_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -173,6 +173,18 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/white"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

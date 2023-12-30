@@ -33,13 +33,13 @@ class AuthenticationFragment : Fragment(R.layout.fragment_authentication) {
             }
             changeLoginTextColor()
             btnSignUpWithFb.setOnClickListener {
-                showToastMessage(getString(R.string.not_yet_implemented), requireContext())
+                showToastMessage(getString(R.string.not_yet_implemented), requireContext().applicationContext)
             }
             btnSignUpWithApple.setOnClickListener {
-                showToastMessage(getString(R.string.not_yet_implemented), requireContext())
+                showToastMessage(getString(R.string.not_yet_implemented), requireContext().applicationContext)
             }
             btnSignUpWithGoogle.setOnClickListener {
-                showToastMessage(getString(R.string.not_yet_implemented), requireContext())
+                showToastMessage(getString(R.string.not_yet_implemented), requireContext().applicationContext)
             }
             btnSignUp.setOnClickListener {
                 findNavController().navigate(R.id.action_authenticationFragment_to_signUpFragment)

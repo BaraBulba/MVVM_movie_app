@@ -39,15 +39,16 @@ class SignUpViewModel @Inject constructor(
         MutableStateFlow<SignUpResult>(SignUpResult.Empty)
     val signUpState = _signUpState.asStateFlow()
 
-    fun signUpNewUser(email: String, password: String) {
+    fun signUpNewUser(email: String, password: String, fullName: String) {
         viewModelScope.launch {
-            authRepository.registerUser(email, password).collectLatest { response ->
+            authRepository.registerUser(email, password, fullName).collectLatest { response ->
                 when (response) {
                     is ResponseWrapper.Error -> _signUpState.value =
                         SignUpResult.Error(response.message)
 
                     is ResponseWrapper.Loading -> _signUpState.value =
                         SignUpResult.Loading
+
                     is ResponseWrapper.Success -> _signUpState.value =
                         SignUpResult.Success(response.data)
                 }

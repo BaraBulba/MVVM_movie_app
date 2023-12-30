@@ -7,7 +7,6 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ForegroundColorSpan
 import androidx.fragment.app.Fragment
 import android.view.View
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
@@ -20,6 +19,7 @@ import com.andrew.solokhov.mvvmmovieapp.R
 import com.andrew.solokhov.mvvmmovieapp.databinding.FragmentSignUpBinding
 import com.andrew.solokhov.mvvmmovieapp.presentation.utils.NewClickableSpan
 import com.andrew.solokhov.mvvmmovieapp.presentation.utils.SignUpFormEvent
+import com.andrew.solokhov.mvvmmovieapp.presentation.utils.removeKeyboard
 import com.andrew.solokhov.mvvmmovieapp.presentation.utils.showToastMessage
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -56,7 +56,8 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                             is SignUpViewModel.ValidationEvent.Success -> {
                                 val email = emailTextInput.text.toString()
                                 val password = passwordTextInput.text.toString()
-                                viewModel.signUpNewUser(email, password)
+                                val fullName = fullNameTextInput.text.toString()
+                                viewModel.signUpNewUser(email, password, fullName = fullName)
                             }
                         }
                     }
@@ -95,14 +96,13 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                                 progressBar.isVisible = false
                                 showToastMessage(
                                     getString(R.string.something_went_wrong_try_again),
-                                    requireContext()
+                                    requireContext().applicationContext
                                 )
                             }
 
                             SignUpResult.Loading -> progressBar.isVisible = true
                             is SignUpResult.Success -> {
                                 progressBar.isVisible = false
-                                showToastMessage("Successfully signed up!", requireContext())
                                 findNavController().navigate(R.id.action_signUpFragment_to_homeFragment)
                             }
                         }
@@ -132,6 +132,9 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
             viewModel.onSignUpEvent(SignUpFormEvent.AcceptTermsAndPolicy(isChecked))
         }
         btnSignUp.setOnClickListener {
+            with(requireView()){
+                removeKeyboard()
+            }
             viewModel.onSignUpEvent(SignUpFormEvent.SignUp)
         }
     }
@@ -143,10 +146,10 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
         val colorSpan = ForegroundColorSpan(color)
         val colorSpan2 = ForegroundColorSpan(color)
         termsOfUseTextClick = NewClickableSpan {
-            showToastMessage(getString(R.string.terms_and_services_clicked), requireContext())
+            showToastMessage(getString(R.string.terms_and_services_clicked), requireContext().applicationContext)
         }
         privacyPolicyTextClick = NewClickableSpan {
-            showToastMessage(getString(R.string.privacy_policy_clicked), requireContext())
+            showToastMessage(getString(R.string.privacy_policy_clicked), requireContext().applicationContext)
         }
 
         ssBuilder.setSpan(termsOfUseTextClick, 15, 33, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)

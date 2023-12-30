@@ -24,4 +24,8 @@
     <string name="reset_password">Reset Password</string>
     <string name="recover_acc_pass">Recover your account password</string>
     <string name="check_your_email">Check your email!</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="terms">Terms</string>
+    <string name="terms_lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget ornare quam vel facilisis feugiat amet sagittis arcu, tortor. Sapien, consequat ultrices morbi orci semper sit nulla. Leo auctor ut etiam est, amet aliquet ut vivamus. Odio vulputate est id tincidunt fames.</string>
+    <string name="changes_to_terms_and_service">Changes to the Service and/or Terms:</string>
 </resources>

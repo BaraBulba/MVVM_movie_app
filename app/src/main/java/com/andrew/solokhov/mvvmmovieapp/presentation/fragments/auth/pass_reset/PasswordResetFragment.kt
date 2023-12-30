@@ -38,20 +38,13 @@ class PasswordResetFragment : Fragment(R.layout.fragment_password_reset) {
                             when (response) {
                                 is ResponseWrapper.Error -> {
                                     progressBar.isVisible = false
-                                    showToastMessage(
-                                        response.message
-                                            ?: getString(R.string.something_went_wrong_try_again),
-                                        requireContext().applicationContext
-                                    )
+                                    showToastMessage(response.message ?: getString(R.string.something_went_wrong_try_again))
                                 }
 
                                 is ResponseWrapper.Loading -> progressBar.isVisible = true
                                 is ResponseWrapper.Success -> {
                                     progressBar.isVisible = false
-                                    showToastMessage(
-                                        getString(R.string.check_your_email),
-                                        requireContext().applicationContext
-                                    )
+                                    showToastMessage(getString(R.string.check_your_email))
                                     findNavController().popBackStack()
                                 }
                             }

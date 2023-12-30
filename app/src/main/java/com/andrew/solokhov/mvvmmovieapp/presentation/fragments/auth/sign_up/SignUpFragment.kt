@@ -94,10 +94,7 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                             SignUpResult.Empty -> Unit
                             is SignUpResult.Error -> {
                                 progressBar.isVisible = false
-                                showToastMessage(
-                                    getString(R.string.something_went_wrong_try_again),
-                                    requireContext().applicationContext
-                                )
+                                showToastMessage(getString(R.string.something_went_wrong_try_again))
                             }
 
                             SignUpResult.Loading -> progressBar.isVisible = true
@@ -132,7 +129,7 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
             viewModel.onSignUpEvent(SignUpFormEvent.AcceptTermsAndPolicy(isChecked))
         }
         btnSignUp.setOnClickListener {
-            with(requireView()){
+            with(requireView()) {
                 removeKeyboard()
             }
             viewModel.onSignUpEvent(SignUpFormEvent.SignUp)
@@ -142,14 +139,15 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
     private fun FragmentSignUpBinding.changeTextColorPartly() {
         val fullText = getString(R.string.terms_of_use)
         val ssBuilder = SpannableStringBuilder(fullText)
-        val color = ContextCompat.getColor(requireContext(), R.color.light_blue)
+        val color = ContextCompat.getColor(requireContext().applicationContext, R.color.light_blue)
         val colorSpan = ForegroundColorSpan(color)
         val colorSpan2 = ForegroundColorSpan(color)
+
         termsOfUseTextClick = NewClickableSpan {
-            showToastMessage(getString(R.string.terms_and_services_clicked), requireContext().applicationContext)
+            findNavController().navigate(R.id.action_signUpFragment_to_privacyPolicyFragment)
         }
         privacyPolicyTextClick = NewClickableSpan {
-            showToastMessage(getString(R.string.privacy_policy_clicked), requireContext().applicationContext)
+            findNavController().navigate(R.id.action_signUpFragment_to_privacyPolicyFragment)
         }
 
         ssBuilder.setSpan(termsOfUseTextClick, 15, 33, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)

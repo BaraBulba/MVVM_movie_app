@@ -54,11 +54,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     when (response) {
                         is ResponseWrapper.Error -> {
                             progressBar.isVisible = false
-                            showToastMessage(
-                                response.message
-                                    ?: getString(R.string.something_went_wrong_try_again),
-                                requireContext().applicationContext
-                            )
+                            showToastMessage(response.message ?: getString(R.string.something_went_wrong_try_again))
                         }
 
                         is ResponseWrapper.Loading -> progressBar.isVisible = true

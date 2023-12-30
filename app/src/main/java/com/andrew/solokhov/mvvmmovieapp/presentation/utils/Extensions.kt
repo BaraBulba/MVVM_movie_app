@@ -7,8 +7,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 
-fun showToastMessage(message: String, context: Context) {
-    Toast.makeText(context.applicationContext, message, Toast.LENGTH_SHORT).show()
+fun Fragment.showToastMessage(message: String) {
+    Toast.makeText(this.requireContext().applicationContext, message, Toast.LENGTH_SHORT).show()
 }
 
 context (View)

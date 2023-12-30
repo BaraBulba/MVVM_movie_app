@@ -60,6 +60,13 @@
             app:popUpTo="@id/main_graph"
             app:popUpToInclusive="true"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_signUpFragment_to_privacyPolicyFragment"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:destination="@id/privacyPolicyFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
@@ -71,4 +78,9 @@
         android:name="com.andrew.solokhov.mvvmmovieapp.presentation.fragments.auth.pass_reset.PasswordResetFragment"
         android:label="fragment_password_reset"
         tools:layout="@layout/fragment_password_reset" />
+    <fragment
+        android:id="@+id/privacyPolicyFragment"
+        android:name="com.andrew.solokhov.mvvmmovieapp.presentation.fragments.auth.policy.PrivacyPolicyFragment"
+        android:label="fragment_privacy_policy"
+        tools:layout="@layout/fragment_privacy_policy" />
 </navigation>

@@ -1,9 +1,9 @@
-package com.andrew.solokhov.mvvmmovieapp.presentation.utils
+package com.andrew.solokhov.mvvmmovieapp.presentation.navigation
 
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
 
-class AuthNavOptions(
+class PopUpNavOptions(
     navController: NavController,
 ) {
     val navOptions = NavOptions.Builder()

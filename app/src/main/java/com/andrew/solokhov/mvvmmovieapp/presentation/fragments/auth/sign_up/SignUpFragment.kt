@@ -25,6 +25,7 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import java.lang.ref.WeakReference
 
 @AndroidEntryPoint
 class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
@@ -141,11 +142,13 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
         val colorSpan = ForegroundColorSpan(color)
         val colorSpan2 = ForegroundColorSpan(color)
 
+        val weakRefNavController = WeakReference(findNavController())
+
         val termsOfUseTextClick = NewClickableSpan {
-            findNavController().navigate(R.id.action_signUpFragment_to_privacyPolicyFragment)
+            weakRefNavController.get()?.navigate(R.id.action_signUpFragment_to_privacyPolicyFragment)
         }
         val privacyPolicyTextClick = NewClickableSpan {
-            findNavController().navigate(R.id.action_signUpFragment_to_privacyPolicyFragment)
+            weakRefNavController.get()?.navigate(R.id.action_signUpFragment_to_privacyPolicyFragment)
         }
 
         ssBuilder.setSpan(termsOfUseTextClick, 15, 33, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
@@ -158,6 +161,9 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        _binding?.run {
+            tvTermsAndServicesPlusPolicy.text = null
+        }
         _binding = null
     }
 

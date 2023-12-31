@@ -1,6 +1,5 @@
 package com.andrew.solokhov.mvvmmovieapp.presentation
 
-import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -8,12 +7,10 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
 import com.andrew.solokhov.mvvmmovieapp.R
 import com.andrew.solokhov.mvvmmovieapp.databinding.ActivityMainBinding
-import com.andrew.solokhov.mvvmmovieapp.presentation.utils.AuthNavOptions
+import com.andrew.solokhov.mvvmmovieapp.presentation.navigation.PopUpNavOptions
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -41,10 +38,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val navigation = currentNavigationFragment?.findNavController()
-        val navHost = supportFragmentManager.findFragmentById(R.id.fragment_container_view_tag) as NavHostFragment
-        val navController = navHost.navController
         navigation?.addOnDestinationChangedListener { _, destination, _ ->
-            showBottomNavBar(destination.id, navController)
+            showBottomNavBar(destination.id, navigation)
         }
         binding.bottomNavBar.setItemSelected(R.id.homeFragment)
     }
@@ -102,7 +97,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun checkIfUserAuthenticated() {
         val navController = findNavController(R.id.fragment_container_view_tag)
-        val navOptions = AuthNavOptions(navController).navOptions
+        val navOptions = PopUpNavOptions(navController).navOptions
         firebaseAuth.currentUser?.let {
             navController.navigate(R.id.homeFragment, null, navOptions)
         } ?: navController.navigate(R.id.authenticationFragment, null, navOptions)

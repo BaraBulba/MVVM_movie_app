@@ -83,4 +83,14 @@
         android:name="com.andrew.solokhov.mvvmmovieapp.presentation.fragments.auth.policy.PrivacyPolicyFragment"
         android:label="fragment_privacy_policy"
         tools:layout="@layout/fragment_privacy_policy" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.andrew.solokhov.mvvmmovieapp.presentation.fragments.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.andrew.solokhov.mvvmmovieapp.presentation.fragments.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
 </navigation>

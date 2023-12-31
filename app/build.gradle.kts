@@ -70,6 +70,9 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
+    //ChipNavigationBar
+    implementation ("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
+
     //Splash api
     implementation ("androidx.core:core-splashscreen:1.0.1")
 

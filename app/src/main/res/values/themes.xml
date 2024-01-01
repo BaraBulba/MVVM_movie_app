@@ -6,4 +6,23 @@
 
     <style name="Theme.MvvmMovieApp" parent="Base.Theme.MvvmMovieApp" />
 
+    <style name="RoundedImage">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay_rounded_image</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay_rounded_image" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ChipStyle.Base" parent="@style/Widget.MaterialComponents.Chip.Action">
+        <item name="android:textAppearance">@style/ChipTextAppearance.Base</item>
+        <item name="chipBackgroundColor">@android:color/holo_blue_light</item>
+    </style>
+
+    <style name="ChipTextAppearance.Base" parent="TextAppearance.MaterialComponents.Chip">
+        <item name="fontFamily">@font/montserrat_medium</item>
+        <item name="android:fontFamily">@font/montserrat_medium</item>
+    </style>
+
 </resources>

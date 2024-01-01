@@ -32,4 +32,18 @@
     <string name="bottom_nav_bar">Bottom nav bar</string>
     <string name="search">Search</string>
     <string name="profile">Profile</string>
+    <string name="profile_image_preview">Profile img</string>
+    <string name="hello_user">Hello, Smith</string>
+    <string name="lets_stream">Let’s stream your favorite movie</string>
+    <string name="search_a_title">Search a title...</string>
+    <string name="categories">Categories</string>
+    <string name="all">All</string>
+    <string name="comedy">Comedy</string>
+    <string name="animation">Animation</string>
+    <string name="documentation">Documentation</string>
+    <string name="most_popular">Most popular</string>
+    <string name="see_all">See All</string>
+    <string name="life_of_pi">Life of Pi</string>
+    <string name="poster_img">Film poster img</string>
+    <string name="genre">Genre\n</string>
 </resources>

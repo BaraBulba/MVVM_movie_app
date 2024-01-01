@@ -73,6 +73,9 @@ dependencies {
     //ChipNavigationBar
     implementation ("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
 
+    //ViewPager2
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+
     //Splash api
     implementation ("androidx.core:core-splashscreen:1.0.1")
 

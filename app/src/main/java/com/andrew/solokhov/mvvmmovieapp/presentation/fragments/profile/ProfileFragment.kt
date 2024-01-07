@@ -25,7 +25,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile), NewOnBackPress.NewO
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentProfileBinding.bind(view)
         _binding?.run {
-            tvTest.text = "Profile"
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, newOnBackPress)
     }

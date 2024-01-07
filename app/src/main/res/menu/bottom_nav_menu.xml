@@ -5,15 +5,18 @@
     <item android:id="@+id/homeFragment"
         android:icon="@drawable/ic_home_deactivated"
         android:title="@string/home"
-        app:cnb_iconColor="#12CDD9"/>
+        app:cnb_iconColor="#12CDD9"
+        app:cnb_backgroundColor="@color/primary_soft"/>
 
     <item android:id="@+id/searchFragment"
         android:icon="@drawable/ic_search_deactivated"
         android:title="@string/search"
-        app:cnb_iconColor="#12CDD9"/>
+        app:cnb_iconColor="#12CDD9"
+        app:cnb_backgroundColor="@color/primary_soft"/>
 
     <item android:id="@+id/profileFragment"
         android:icon="@drawable/ic_profile_deactivated"
         android:title="@string/profile"
-        app:cnb_iconColor="#12CDD9"/>
+        app:cnb_iconColor="#12CDD9"
+        app:cnb_backgroundColor="@color/primary_soft"/>
 </menu>

@@ -145,10 +145,12 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
         val weakRefNavController = WeakReference(findNavController())
 
         val termsOfUseTextClick = NewClickableSpan {
-            weakRefNavController.get()?.navigate(R.id.action_signUpFragment_to_privacyPolicyFragment)
+            weakRefNavController.get()
+                ?.navigate(R.id.action_signUpFragment_to_privacyPolicyFragment)
         }
         val privacyPolicyTextClick = NewClickableSpan {
-            weakRefNavController.get()?.navigate(R.id.action_signUpFragment_to_privacyPolicyFragment)
+            weakRefNavController.get()
+                ?.navigate(R.id.action_signUpFragment_to_privacyPolicyFragment)
         }
 
         ssBuilder.setSpan(termsOfUseTextClick, 15, 33, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)

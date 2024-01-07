@@ -58,4 +58,7 @@
     <string name="legal_and_policy">Legal and Policies</string>
     <string name="help"><![CDATA[Help & Feedback]]></string>
     <string name="log_out">Log Out</string>
+    <string name="type_title">Type title, categories, years, etc</string>
+    <string name="today">Today</string>
+    <string name="recommended_for_you">Recommended for you</string>
 </resources>

@@ -97,7 +97,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun checkIfUserAuthenticated() {
         val navController = findNavController(R.id.fragment_container_view_tag)
-        val navOptions = PopUpNavOptions(navController).navOptions
+        val navOptions = PopUpNavOptions(navController).navOptionsBuilder.build()
         firebaseAuth.currentUser?.let {
             navController.navigate(R.id.homeFragment, null, navOptions)
         } ?: navController.navigate(R.id.authenticationFragment, null, navOptions)

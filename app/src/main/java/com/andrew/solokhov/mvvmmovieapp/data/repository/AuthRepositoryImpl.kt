@@ -77,6 +77,12 @@ class AuthRepositoryImpl @Inject constructor(
         )
     }
 
+    override suspend fun userSignOut() {
+        withContext(io){
+            firebaseAuth.signOut()
+        }
+    }
+
     private fun <T> performFirebaseAuthOperation(
         operation: suspend () -> Task<T>,
         firebaseCrashlytics: FirebaseCrashlytics

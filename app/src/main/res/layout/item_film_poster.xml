@@ -10,8 +10,6 @@
     android:backgroundTint="@color/primary_soft"
     app:cardCornerRadius="12dp">
 
-
-
     <LinearLayout
         android:id="@+id/character_container"
         android:layout_width="match_parent"

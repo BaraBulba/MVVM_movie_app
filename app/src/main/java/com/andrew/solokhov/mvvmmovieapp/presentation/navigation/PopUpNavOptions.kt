@@ -6,7 +6,6 @@ import androidx.navigation.NavOptions
 class PopUpNavOptions(
     navController: NavController,
 ) {
-    val navOptions = NavOptions.Builder()
-    .setPopUpTo(navController.graph.startDestinationId, true)
-    .build()
+    val navOptionsBuilder = NavOptions.Builder()
+        .setPopUpTo(navController.graph.startDestinationId, true)
 }

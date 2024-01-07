@@ -8,4 +8,5 @@ interface AuthRepository {
     fun loginUser(email: String, password: String): Flow<ResponseWrapper<Boolean>>
     suspend fun updateUserProfileName(fullName: String)
     fun resetUserPasswordWithEmail(email: String): Flow<ResponseWrapper<Boolean>>
+    suspend fun userSignOut()
 }

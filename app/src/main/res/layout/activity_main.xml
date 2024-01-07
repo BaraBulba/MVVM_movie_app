@@ -23,6 +23,7 @@
         android:id="@+id/bottom_nav_bar"
         android:layout_width="match_parent"
         android:layout_height="72dp"
+        app:cnb_textAppearance="@style/myChipNavText"
         app:cnb_badgeColor="@color/primary_soft"
         android:contentDescription="@string/bottom_nav_bar"
         android:background="@color/main_color"

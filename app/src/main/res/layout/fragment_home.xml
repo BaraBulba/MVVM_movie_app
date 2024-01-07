@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,220 +7,237 @@
     android:background="@color/main_color"
     tools:context=".presentation.fragments.home.HomeFragment">
 
-    <ImageButton
-        android:id="@+id/btn_favorite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="28dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/back_press_btn"
-        android:src="@drawable/ic_wishlist"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/image_view_nasa"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:contentDescription="@string/profile_image_preview"
-        android:scaleType="centerCrop"
-        android:theme="@style/RoundedImage"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/ic_avatar" />
-
-    <TextView
-        android:id="@+id/tv_hello_user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/montserrat_medium"
-        android:gravity="center"
-        android:text="@string/hello_user"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/image_view_nasa"
-        app:layout_constraintTop_toTopOf="@+id/image_view_nasa" />
-
-    <TextView
-        android:id="@+id/tv_test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/montserrat_medium"
-        android:gravity="center"
-        android:text="@string/lets_stream"
-        android:textColor="@color/grey"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/image_view_nasa"
-        app:layout_constraintTop_toBottomOf="@id/tv_hello_user"
-        tools:layout_editor_absoluteY="8dp" />
-
-    <EditText
-        android:id="@+id/search_input"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="41dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
-        android:autofillHints="name"
-        android:background="@drawable/search_input_bg"
-        android:drawableStart="@drawable/ic_search_bar"
-        android:drawablePadding="10dp"
-        android:fontFamily="@font/montserrat_medium"
-        android:hint="@string/search_a_title"
-        android:inputType="text"
-        android:textColor="@color/white"
-        android:paddingStart="16dp"
-        android:paddingEnd="48dp"
-        android:textColorHint="@color/grey"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_test" />
+        android:layout_height="wrap_content">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/view_pager_image_slider"
-        android:layout_width="match_parent"
-        android:layout_height="174dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_input" />
-
-    <TextView
-        android:id="@+id/tv_categories"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:gravity="center"
-        android:text="@string/categories"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_pager_image_slider" />
-
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:scrollbars="none"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_categories">
-
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chipGroup"
+        <ImageButton
+            android:id="@+id/btn_favorite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:chipSpacing="8dp"
-            app:layout_constraintStart_toStartOf="@+id/tv_categories"
-            app:layout_constraintTop_toBottomOf="@+id/tv_categories"
-            app:singleSelection="true">
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="28dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/back_press_btn"
+            android:src="@drawable/ic_wishlist"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_all"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:checked="true"
-                android:text="@string/all"
-                android:textAlignment="center"
-                android:textAppearance="@style/ChipTextAppearance.Base"
-                android:textColor="@color/chip_item_text_color"
-                app:chipBackgroundColor="@color/chip_item_bg" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/image_view_nasa"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/profile_image_preview"
+            android:scaleType="centerCrop"
+            android:theme="@style/RoundedImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_avatar" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_comedy"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
+        <TextView
+            android:id="@+id/tv_hello_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center"
+            android:text="@string/hello_user"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/image_view_nasa"
+            app:layout_constraintTop_toTopOf="@+id/image_view_nasa" />
+
+        <TextView
+            android:id="@+id/tv_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center"
+            android:text="@string/lets_stream"
+            android:textColor="@color/grey"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/image_view_nasa"
+            app:layout_constraintTop_toBottomOf="@id/tv_hello_user"
+            tools:layout_editor_absoluteY="8dp" />
+
+        <EditText
+            android:id="@+id/search_input"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="24dp"
+            android:autofillHints="name"
+            android:drawableEnd="@drawable/ic_filter"
+            android:background="@drawable/search_input_bg"
+            android:drawableStart="@drawable/ic_search_bar"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:hint="@string/search_a_title"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:paddingStart="16dp"
+            android:paddingEnd="13dp"
+            android:textColorHint="@color/grey"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_test" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="16dp"
+            android:background="@color/grey"
+            app:layout_constraintBottom_toBottomOf="@id/search_input"
+            app:layout_constraintEnd_toEndOf="@+id/search_input"
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintStart_toStartOf="@+id/search_input"
+            app:layout_constraintTop_toTopOf="@id/search_input" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager_image_slider"
+            android:layout_width="match_parent"
+            android:layout_height="174dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_input" />
+
+        <TextView
+            android:id="@+id/tv_categories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:gravity="center"
+            android:text="@string/categories"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_pager_image_slider" />
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:scrollbars="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_categories">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_medium"
-                android:text="@string/comedy"
-                android:textAlignment="center"
-                android:textAppearance="@style/ChipTextAppearance.Base"
-                android:textColor="@color/chip_item_text_color"
-                app:chipBackgroundColor="@color/chip_item_bg" />
+                app:chipSpacing="8dp"
+                app:layout_constraintStart_toStartOf="@+id/tv_categories"
+                app:layout_constraintTop_toBottomOf="@+id/tv_categories"
+                app:singleSelection="true">
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_animation"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/animation"
-                android:textAlignment="center"
-                android:textAppearance="@style/ChipTextAppearance.Base"
-                android:textColor="@color/chip_item_text_color"
-                app:chipBackgroundColor="@color/chip_item_bg" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_all"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:checked="true"
+                    android:text="@string/all"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/ChipTextAppearance.Base"
+                    android:textColor="@color/chip_item_text_color"
+                    app:chipBackgroundColor="@color/chip_item_bg" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_documentation"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/documentation"
-                android:textAlignment="center"
-                android:textAppearance="@style/ChipTextAppearance.Base"
-                android:textColor="@color/chip_item_text_color"
-                app:chipBackgroundColor="@color/chip_item_bg" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_comedy"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="@string/comedy"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/ChipTextAppearance.Base"
+                    android:textColor="@color/chip_item_text_color"
+                    app:chipBackgroundColor="@color/chip_item_bg" />
 
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_animation"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/animation"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/ChipTextAppearance.Base"
+                    android:textColor="@color/chip_item_text_color"
+                    app:chipBackgroundColor="@color/chip_item_bg" />
 
-        </com.google.android.material.chip.ChipGroup>
-
-    </HorizontalScrollView>
-
-    <TextView
-        android:id="@+id/tv_most_popular"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:gravity="center"
-        android:text="@string/most_popular"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
-
-    <TextView
-        android:id="@+id/tv_see_all"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="@font/montserrat_regular"
-        android:gravity="center"
-        android:text="@string/see_all"
-        android:textColor="@color/light_blue"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_most_popular"
-        app:layout_constraintVertical_bias="0.0"
-        tools:listitem="@layout/item_film_poster" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_documentation"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/documentation"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/ChipTextAppearance.Base"
+                    android:textColor="@color/chip_item_text_color"
+                    app:chipBackgroundColor="@color/chip_item_bg" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.chip.ChipGroup>
+
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/tv_most_popular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:gravity="center"
+            android:text="@string/most_popular"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+        <TextView
+            android:id="@+id/tv_see_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="24dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:gravity="center"
+            android:text="@string/see_all"
+            android:textColor="@color/light_blue"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="0dp"
+            android:layout_height="270dp"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_most_popular"
+            app:layout_constraintVertical_bias="0.0"
+            tools:listitem="@layout/item_film_poster" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

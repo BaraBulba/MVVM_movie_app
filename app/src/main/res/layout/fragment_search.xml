@@ -1,18 +1,323 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_color"
     tools:context=".presentation.fragments.search.SearchFragment">
 
-    <TextView
-        android:id="@+id/tv_test"
-        android:gravity="center"
-        android:textSize="32sp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/white"
-        android:text="@string/hello_blank_fragment" />
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
 
-</FrameLayout>
+       <EditText
+           android:id="@+id/search_input"
+           android:layout_width="match_parent"
+           android:layout_height="41dp"
+           android:layout_marginStart="24dp"
+           android:layout_marginTop="8dp"
+           android:layout_marginEnd="24dp"
+           android:autofillHints="name"
+           android:background="@drawable/search_input_bg"
+           android:drawableStart="@drawable/ic_search_bar"
+           android:drawablePadding="10dp"
+           android:fontFamily="@font/montserrat_medium"
+           android:hint="@string/type_title"
+           android:inputType="text"
+           android:paddingStart="16dp"
+           android:paddingEnd="48dp"
+           android:textColor="@color/white"
+           android:textColorHint="@color/grey"
+           android:textSize="14sp"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintHorizontal_bias="0.5"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent" />
+
+       <HorizontalScrollView
+           android:id="@+id/horizontalScrollView"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="24dp"
+           android:scrollbars="none"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintHorizontal_bias="0.5"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/search_input">
+
+           <com.google.android.material.chip.ChipGroup
+               android:id="@+id/chipGroup"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               app:chipSpacing="8dp"
+               app:layout_constraintStart_toStartOf="@+id/tv_categories"
+               app:layout_constraintTop_toBottomOf="@+id/tv_categories"
+               app:singleSelection="true">
+
+               <com.google.android.material.chip.Chip
+                   android:id="@+id/chip_all"
+                   style="@style/Widget.MaterialComponents.Chip.Choice"
+                   android:layout_width="80dp"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="28dp"
+                   android:checked="true"
+                   android:text="@string/all"
+                   android:textAlignment="center"
+                   android:textAppearance="@style/ChipTextAppearance.Base"
+                   android:textColor="@color/chip_item_text_color"
+                   app:chipBackgroundColor="@color/chip_item_bg" />
+
+               <com.google.android.material.chip.Chip
+                   android:id="@+id/chip_comedy"
+                   style="@style/Widget.MaterialComponents.Chip.Choice"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:fontFamily="@font/montserrat_medium"
+                   android:text="@string/comedy"
+                   android:textAlignment="center"
+                   android:textAppearance="@style/ChipTextAppearance.Base"
+                   android:textColor="@color/chip_item_text_color"
+                   app:chipBackgroundColor="@color/chip_item_bg" />
+
+               <com.google.android.material.chip.Chip
+                   android:id="@+id/chip_animation"
+                   style="@style/Widget.MaterialComponents.Chip.Choice"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="@string/animation"
+                   android:textAlignment="center"
+                   android:textAppearance="@style/ChipTextAppearance.Base"
+                   android:textColor="@color/chip_item_text_color"
+                   app:chipBackgroundColor="@color/chip_item_bg" />
+
+               <com.google.android.material.chip.Chip
+                   android:id="@+id/chip_documentation"
+                   style="@style/Widget.MaterialComponents.Chip.Choice"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="@string/documentation"
+                   android:textAlignment="center"
+                   android:textAppearance="@style/ChipTextAppearance.Base"
+                   android:textColor="@color/chip_item_text_color"
+                   app:chipBackgroundColor="@color/chip_item_bg" />
+
+
+           </com.google.android.material.chip.ChipGroup>
+
+       </HorizontalScrollView>
+
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:id="@+id/today_container"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           android:layout_margin="24dp"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintHorizontal_bias="0.5"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@id/horizontalScrollView">
+
+           <TextView
+               android:id="@+id/today_text"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:fontFamily="@font/montserrat_regular"
+               android:text="@string/today"
+               android:textColor="@color/white"
+               android:textSize="16sp"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent" />
+
+           <com.google.android.material.card.MaterialCardView
+               android:id="@+id/materialCardView"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="16dp"
+               app:cardCornerRadius="12dp"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@id/today_text">
+
+               <ImageView
+                   android:id="@+id/image_view_character"
+                   android:layout_width="160dp"
+                   android:layout_height="157dp"
+                   android:contentDescription="@string/poster_img"
+                   android:scaleType="centerCrop"
+                   android:src="@drawable/test_item_img" />
+
+               <ImageView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="end"
+                   android:layout_marginTop="8dp"
+                   android:layout_marginEnd="8dp"
+                   android:src="@drawable/ic_rate_default" />
+
+           </com.google.android.material.card.MaterialCardView>
+
+           <androidx.appcompat.widget.AppCompatImageView
+               android:id="@+id/ic_premium"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="16dp"
+               android:layout_marginTop="5dp"
+               android:src="@drawable/ic_premium"
+               app:layout_constraintStart_toEndOf="@+id/materialCardView"
+               app:layout_constraintTop_toTopOf="@+id/materialCardView" />
+
+           <TextView
+               android:id="@+id/tv_film_name"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="16dp"
+               android:layout_marginTop="12dp"
+               android:ellipsize="end"
+               android:fontFamily="@font/montserrat_regular"
+               android:singleLine="true"
+               app:layout_constraintEnd_toEndOf="parent"
+               android:text="Spider-Man No Way Home"
+               android:textColor="@color/white"
+               android:textSize="16sp"
+               app:layout_constraintStart_toEndOf="@+id/materialCardView"
+               app:layout_constraintTop_toBottomOf="@id/ic_premium" />
+
+           <androidx.appcompat.widget.AppCompatImageView
+               android:id="@+id/appCompatImageView2"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="16dp"
+               android:layout_marginTop="12dp"
+               android:src="@drawable/ic_calendar"
+               app:layout_constraintStart_toEndOf="@id/materialCardView"
+               app:layout_constraintTop_toBottomOf="@id/tv_film_name" />
+
+           <TextView
+               android:id="@+id/tv_release_date"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="4dp"
+               android:text="2021"
+               android:textColor="@color/grey"
+               android:textSize="12sp"
+               app:layout_constraintStart_toEndOf="@+id/appCompatImageView2"
+               app:layout_constraintTop_toTopOf="@+id/appCompatImageView2" />
+
+           <androidx.appcompat.widget.AppCompatImageView
+               android:id="@+id/clock_img"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="16dp"
+               android:layout_marginTop="14dp"
+               android:src="@drawable/ic_clock"
+               app:layout_constraintStart_toEndOf="@id/materialCardView"
+               app:layout_constraintTop_toBottomOf="@id/appCompatImageView2" />
+
+           <TextView
+               android:id="@+id/tv_film_duration"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="4dp"
+               android:text="148 minutes"
+               android:textColor="@color/grey"
+               android:textSize="12sp"
+               app:layout_constraintStart_toEndOf="@+id/appCompatImageView2"
+               app:layout_constraintTop_toTopOf="@+id/clock_img" />
+
+           <androidx.appcompat.widget.AppCompatImageView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="12dp"
+               android:src="@drawable/ic_pg_13"
+               app:layout_constraintStart_toEndOf="@+id/tv_film_duration"
+               app:layout_constraintTop_toTopOf="@+id/tv_film_duration" />
+
+           <androidx.appcompat.widget.AppCompatImageView
+               android:id="@+id/film_img"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="16dp"
+               android:layout_marginTop="14dp"
+               android:src="@drawable/ic_film"
+               app:layout_constraintStart_toEndOf="@id/materialCardView"
+               app:layout_constraintTop_toBottomOf="@id/clock_img" />
+
+           <TextView
+               android:id="@+id/tv_film_genre"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="4dp"
+               android:text="Action"
+               android:textColor="@color/grey"
+               android:textSize="12sp"
+               app:layout_constraintStart_toEndOf="@+id/appCompatImageView2"
+               app:layout_constraintTop_toTopOf="@+id/film_img" />
+
+           <View
+               android:id="@+id/view_between_genres"
+               android:layout_width="1dp"
+               android:layout_height="16dp"
+               android:layout_marginStart="8dp"
+               app:layout_constraintStart_toEndOf="@id/tv_film_genre"
+               app:layout_constraintTop_toTopOf="@id/tv_film_genre"
+               android:background="@color/grey" />
+
+           <TextView
+               android:id="@+id/tv_film_genre_type"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="4dp"
+               android:text="Movie"
+               android:textColor="@color/white"
+               android:textSize="12sp"
+               app:layout_constraintStart_toEndOf="@+id/view_between_genres"
+               app:layout_constraintTop_toTopOf="@+id/film_img" />
+
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+       <TextView
+           android:id="@+id/tv_most_popular"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginStart="24dp"
+           android:layout_marginTop="95dp"
+           android:fontFamily="@font/montserrat_semi_bold"
+           android:gravity="center"
+           android:text="@string/recommended_for_you"
+           android:textColor="@color/white"
+           android:textSize="16sp"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/today_container" />
+
+       <TextView
+           android:id="@+id/tv_see_all"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="95dp"
+           android:layout_marginEnd="24dp"
+           android:fontFamily="@font/montserrat_regular"
+           android:gravity="center"
+           android:text="@string/see_all"
+           android:textColor="@color/light_blue"
+           android:textSize="16sp"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/today_container" />
+
+       <androidx.recyclerview.widget.RecyclerView
+           android:layout_width="0dp"
+           android:layout_height="270dp"
+           android:layout_marginTop="16dp"
+           android:orientation="horizontal"
+           app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintHorizontal_bias="0.0"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/tv_most_popular"
+           app:layout_constraintVertical_bias="0.0"
+           tools:listitem="@layout/item_film_poster" />
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

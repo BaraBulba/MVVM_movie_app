@@ -23,7 +23,6 @@ class SearchFragment : Fragment(R.layout.fragment_search), NewOnBackPress.NewOnB
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentSearchBinding.bind(view)
         _binding?.run {
-            tvTest.text = "Search"
         }
 
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, customOnBackPress)
@@ -38,7 +37,7 @@ class SearchFragment : Fragment(R.layout.fragment_search), NewOnBackPress.NewOnB
         val btmNavBar = requireActivity()
             .findViewById<ChipNavigationBar>(R.id.bottom_nav_bar)
         btmNavBar.setItemSelected(R.id.homeFragment)
-        val navOptions = PopUpNavOptions(findNavController()).navOptions
+        val navOptions = PopUpNavOptions(findNavController()).navOptionsBuilder.build()
         findNavController().navigate(R.id.homeFragment, null, navOptions)
     }
 }

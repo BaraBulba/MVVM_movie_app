@@ -92,13 +92,13 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                         when (result) {
                             SignUpResult.Empty -> Unit
                             is SignUpResult.Error -> {
-                                progressBar.isVisible = false
                                 showToastMessage(getString(R.string.something_went_wrong_try_again))
                             }
 
-                            SignUpResult.Loading -> progressBar.isVisible = true
+                            is SignUpResult.Loading -> progressBar.isVisible =
+                                result.isLoading == true
+
                             is SignUpResult.Success -> {
-                                progressBar.isVisible = false
                                 findNavController().navigate(R.id.action_signUpFragment_to_homeFragment)
                             }
                         }

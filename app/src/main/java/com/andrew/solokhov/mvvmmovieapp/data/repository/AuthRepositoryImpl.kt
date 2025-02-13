@@ -28,17 +28,22 @@ class AuthRepositoryImpl @Inject constructor(
         fullName: String
     ): Flow<ResponseWrapper<Boolean>> {
         return flow {
-            emit(ResponseWrapper.Loading())
+            emit(ResponseWrapper.Loading(true))
             val response = firebaseAuth.createUserWithEmailAndPassword(
                 email, password
             )
             response.await()
             if (response.isSuccessful) {
                 updateUserProfileName(fullName)
+                emit(ResponseWrapper.Loading(false))
                 emit(ResponseWrapper.Success(true))
-            } else emit(ResponseWrapper.Error(response.exception?.message))
+            } else {
+                emit(ResponseWrapper.Loading(false))
+                emit(ResponseWrapper.Error(response.exception?.message))
+            }
         }.flowOn(io).catch { throwable ->
             firebaseCrashlytics.recordException(throwable)
+            emit(ResponseWrapper.Loading(false))
             emit(ResponseWrapper.Error(throwable.localizedMessage))
         }
     }

@@ -14,7 +14,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -41,13 +40,13 @@ class SignUpViewModel @Inject constructor(
 
     fun signUpNewUser(email: String, password: String, fullName: String) {
         viewModelScope.launch {
-            authRepository.registerUser(email, password, fullName).collectLatest { response ->
+            authRepository.registerUser(email, password, fullName).collect { response ->
                 when (response) {
                     is ResponseWrapper.Error -> _signUpState.value =
                         SignUpResult.Error(response.message)
 
                     is ResponseWrapper.Loading -> _signUpState.value =
-                        SignUpResult.Loading
+                        SignUpResult.Loading(response.isLoading)
 
                     is ResponseWrapper.Success -> _signUpState.value =
                         SignUpResult.Success(response.data)
